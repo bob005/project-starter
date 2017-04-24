@@ -1,0 +1,13 @@
+{
+    "name": "bob005/project-starter",
+    "description": "Just a project starter",
+    "type": "project",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Sayantan Bakshi",
+            "email": "sbongoog@gmail.com"
+        }
+    ],
+    "require": {}
+}

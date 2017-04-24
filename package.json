@@ -1,0 +1,30 @@
+{
+  "name": "project starter",
+  "version": "1.0.0",
+  "description": "just a project starter",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-csso": "^3.0.0",
+    "gulp-google-webfonts": "0.0.14",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-less": "^3.3.0",
+    "gulp-replace": "^0.5.4"
+  },
+  "scripts": {
+    "buildproject": "gulp build",
+    "clearbuild": "gulp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bob005/project-starter.git"
+  },
+  "author": "Sayantan Bakshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bob005/project-starter/issues"
+  },
+  "homepage": "https://github.com/bob005/project-starter#readme"
+}
