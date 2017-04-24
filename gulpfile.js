@@ -1,6 +1,7 @@
 var gulp = require("gulp"),
     less = require("gulp-less"),
     minifyCSS = require("gulp-csso"),
+    uglify = require("gulp-uglify"),
     googleWebFonts = require("gulp-google-webfonts"),
     htmlreplace = require("gulp-html-replace"),
     replace = require("gulp-replace"),
@@ -12,7 +13,7 @@ var options = {
     cssFilename: "fonts.css"
 };
 
-var baseDir = "src/assets";
+var baseAssetsDir = "src/assets";
 
 gulp.task("clean", function () {
     return gulp.src("build/", {read: false})
@@ -20,7 +21,7 @@ gulp.task("clean", function () {
 });
 
 gulp.task("fonts", ["clean"], function () {
-    return gulp.src(baseDir + "/fonts/fonts.list")
+    return gulp.src(baseAssetsDir + "/fonts/fonts.list")
         .pipe(googleWebFonts(options))
         .pipe(gulp.dest("build/"))
 });
@@ -32,13 +33,19 @@ gulp.task("fontspathfixed", [ "fonts" ], function(){
 });
 
 gulp.task("css", ["fontspathfixed"], function(){
-    return gulp.src(baseDir + "/less/*.less")
+    return gulp.src(baseAssetsDir + "/less/*.less")
         .pipe(less())
         .pipe(minifyCSS())
         .pipe(gulp.dest("build/assets/css"))
 });
 
-gulp.task("html", ["css"], function() {
+gulp.task("js", ["css"], function(){
+    gulp.src(baseAssetsDir + "/js/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest("build/assets/js"));
+});
+
+gulp.task("html", ["js"], function() {
     gulp.src("src/*.html")
         .pipe(htmlreplace({
             "css": "assets/css/styles.css"
@@ -48,9 +55,9 @@ gulp.task("html", ["css"], function() {
 
 gulp.task("copyassets", ["html"], function () {
     gulp.src([
-        baseDir + "/**",
-        "!" + baseDir + "/less{,/**}",
-        "!" + baseDir + "/fonts{,/**}",
+        baseAssetsDir + "/**",
+        "!" + baseAssetsDir + "/less{,/**}",
+        "!" + baseAssetsDir + "/fonts{,/**}",
     ]).pipe(gulp.dest("build/assets"));
 });
 
