@@ -3,7 +3,7 @@
 
 **Instructions**
 1. Use [Google Fonts](https://fonts.google.com/) only and edit, add to the font list in [src/assets/fonts/fonts.list](src/assets/fonts/fonts.list) file.
-2. Edit the less code in [styles.less](src/assets/less/styles.less). Do not remove the fonts.css import as the css generated at build time sames to the imported file.
+2. Edit the less code in [styles.less](src/assets/less/styles.less). Do not remove the fonts.css import as the fonts.css generated at build time needs to be imported into the main stylesheet.
 
 **Commands:**
 1. `npm install` &mdash; Installs gulp and other plugins
