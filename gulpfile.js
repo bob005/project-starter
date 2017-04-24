@@ -58,6 +58,7 @@ gulp.task("copyassets", ["html"], function () {
         baseAssetsDir + "/**",
         "!" + baseAssetsDir + "/less{,/**}",
         "!" + baseAssetsDir + "/fonts{,/**}",
+        "!" + baseAssetsDir + "/js{,/**}",
     ]).pipe(gulp.dest("build/assets"));
 });
 
