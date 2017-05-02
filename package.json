@@ -1,5 +1,5 @@
 {
-  "name": "experimental-ui-01",
+  "name": "project-starter",
   "version": "1.0.0",
   "description": "just a project",
   "main": "index.js",
@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bob005/experimental-ui-01.git"
+    "url": "git+https://github.com/bob005/project-starter"
   },
   "author": "Sayantan Bakshi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/bob005/experimental-ui-01/issues"
+    "url": "https://github.com/bob005/project-starter/issues"
   },
-  "homepage": "https://github.com/bob005/experimental-ui-01#readme"
+  "homepage": "https://github.com/bob005/project-starter#readme"
 }
