@@ -1,5 +1,6 @@
 var gulp = require("gulp"),
     less = require("gulp-less"),
+    lessGlob = require("gulp-less-glob"),
     minifyCSS = require("gulp-csso"),
     uglify = require("gulp-uglify"),
     googleWebFonts = require("gulp-google-webfonts"),
@@ -34,6 +35,7 @@ gulp.task("fontspathfixed", [ "fonts" ], function(){
 
 gulp.task("css", ["fontspathfixed"], function(){
     return gulp.src(baseAssetsDir + "/less/*.less")
+        .pipe(lessGlob())
         .pipe(less())
         .pipe(minifyCSS())
         .pipe(gulp.dest("build/assets/css"))
