@@ -1,7 +1,6 @@
 @echo off
-npm install gulp-cli -g
+WHERE gulp
+IF %ERRORLEVEL% NEQ 0 npm install gulp-cli -g
 npm install
-echo "Starting cleaning process"
 gulp clean
-echo "It's all cleaned up!"
 @echo on
