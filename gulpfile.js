@@ -6,7 +6,8 @@ var gulp = require("gulp"),
     googleWebFonts = require("gulp-google-webfonts"),
     htmlreplace = require("gulp-html-replace"),
     replace = require("gulp-replace"),
-    clean = require("gulp-clean");
+    clean = require("gulp-clean"),
+    htmlmin = require("gulp-htmlmin");
 
 var options = {
     fontsDir: "assets/fonts/",
@@ -48,9 +49,17 @@ gulp.task("js", ["css"], function(){
 });
 
 gulp.task("html", ["js"], function() {
-    gulp.src("src/*.html")
+    gulp.src(["src/*.html", "src/*.php"])
         .pipe(htmlreplace({
             "css": "assets/css/styles.css"
+        }))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            sortAttributes: true
         }))
         .pipe(gulp.dest("build"));
 });

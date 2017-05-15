@@ -10,14 +10,15 @@
     "gulp-csso": "^3.0.0",
     "gulp-google-webfonts": "0.0.14",
     "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-less": "^3.3.0",
     "gulp-less-glob": "^1.0.0",
     "gulp-replace": "^0.5.4",
     "gulp-uglify": "^2.1.2"
   },
   "scripts": {
-    "buildproject": "gulp build",
-    "clearbuild": "gulp clean"
+    "build": "gulp build",
+    "clean": "gulp clean"
   },
   "repository": {
     "type": "git",
