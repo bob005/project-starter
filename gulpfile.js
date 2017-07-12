@@ -25,10 +25,17 @@ gulp.task("clean", function () {
 gulp.task("fonts", ["clean"], function () {
     return gulp.src(baseAssetsDir + "/fonts/fonts.list")
         .pipe(googleWebFonts(options))
-        .pipe(gulp.dest("build/"))
+        .pipe(gulp.dest("build/"));
 });
 
-gulp.task("fontspathfixed", [ "fonts" ], function(){
+gulp.task("fonts2", ["fonts"], function () {
+    gulp.src([
+        baseAssetsDir + "/fonts/**",
+        "!" + baseAssetsDir + "/fonts/fonts.list",
+    ]).pipe(gulp.dest("build/assets/fonts"));
+});
+
+gulp.task("fontspathfixed", [ "fonts2" ], function(){
     gulp.src(["build/assets/css/fonts.css"])
         .pipe(replace("assets/", "../"))
         .pipe(gulp.dest("build/assets/css/"));
